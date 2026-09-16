@@ -6,19 +6,13 @@ pipeline {
     }
     stages {
         stage('Checkout') {
-            steps {
-                git url: 'https://github.com/do400-gunnar/DO400-apps', branch: 'scripted-pipelines'
-            }
+            git url: 'https://github.com/do400-gunnar/DO400-apps', branch: 'main'
         }
-        stage('Test') {
-            steps {
-                sh 'simple-webapp/backend/test_api.sh'
-            }
+        stage('Backend Test') {
+            sh 'node ./backend/test.js'
         }
         stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-            }
+            echo 'Deploying...'
         }
     }
 }
