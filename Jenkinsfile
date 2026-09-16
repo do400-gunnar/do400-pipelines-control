@@ -1,14 +1,11 @@
 node('nodejs') {
-    stage('Say Hello') {
-        echo 'Hello'
+    stage('Checkout') {
+        git branch: 'main', url: 'https://github.com/do400-gunnar/do400-pipelines-control'
     }
-    stage('List it') {
-        sh 'tree .'
-    }
-    stage('Backend Test') {
+    stage('Backend Tests') {
         sh 'node ./backend/test.js'
     }
-    stage('Deploy') {
-        echo 'Deploying...'
+    stage('Frontend Tests') {
+        sh 'node ./frontend/test.js'
     }
 }
