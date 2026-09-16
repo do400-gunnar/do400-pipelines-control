@@ -3,6 +3,7 @@
 # Always set the current working directory as the project's root
 PROJECT_ROOT=$(cd $(dirname $0)/.. && pwd)
 
+
 # HTTP method
 METHOD=$1
 
